@@ -1,0 +1,24 @@
+site_name: Справочник садовода
+theme:
+  name: material
+  features:
+    - navigation.tabs # Вкладки категорий сверху (Овощи, Фрукты...)
+    - navigation.sections # Секции в сайдбаре
+    - search.suggest # Поиск с подсказками
+    - content.code.copy # Кнопка копирования (для рецептов/таблиц)
+
+markdown_extensions:
+  - admonition # Для блоков [!tip] и [!warning] (ваши нюансы)
+  - tables # Поддержка таблиц
+  - pymdownx.emoji # Поддержка эмодзи
+
+nav:
+  - Главная: index.md
+  - Овощи:
+      - Томат 'Бычье сердце': ovoshhi/tomat.md
+      - Огурец 'Изящный': ovoshhi/ogurec.md
+      - Перец 'Калифорнийское чудо': ovoshhi/perec.md
+  - Плодовые:
+      - Яблоня 'Антоновка': plodovye/yablonya.md
+  - Цветы:
+      - Роза 'Пьер де Ронсар': cvety/roza.md
