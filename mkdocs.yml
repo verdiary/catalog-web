@@ -31,6 +31,15 @@ markdown_extensions:
 
 nav:
   - Главная: index.md
-  - Овощи: []
+  - Овощи:
+      - Корнеплоды:
+          - Сельдерей корневой 'Пражский Гигант': ovoshhi/korneplody/seledrey_kornevoy_pragskiy_gigant.md
+      - Паслёновые: []
+      - Капустные: []
+      - Луковичные:
+          - Лук репчатый 'Голд Стар': ovoshhi/lukovichnye/luk_repchaty_gold_star.md
+          - Лук-порей 'Италико': ovoshhi/lukovichnye/luk_porrey_italiko.md
+      - Тыквенные: []
+      - Зелень: []
   - Плодовые: []
   - Цветы: []
