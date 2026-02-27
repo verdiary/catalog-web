@@ -31,11 +31,6 @@ markdown_extensions:
 
 nav:
   - Главная: index.md
-  - Овощи:
-      - Томат 'Бычье сердце': ovoshhi/tomat.md
-      - Огурец 'Изящный': ovoshhi/ogurec.md
-      - Перец 'Калифорнийское чудо': ovoshhi/perec.md
-  - Плодовые:
-      - Яблоня 'Антоновка': plodovye/yablonya.md
-  - Цветы:
-      - Роза 'Пьер де Ронсар': cvety/roza.md
+  - Овощи: []
+  - Плодовые: []
+  - Цветы: []
