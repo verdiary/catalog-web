@@ -28,18 +28,38 @@ markdown_extensions:
   - admonition # Для блоков [!tip] и [!warning] (ваши нюансы)
   - tables # Поддержка таблиц
   - pymdownx.emoji # Поддержка эмодзи
+  - pymdownx.details
+  - pymdownx.superfences
 
 nav:
   - Главная: index.md
   - Овощи:
       - Корнеплоды:
           - Сельдерей корневой 'Пражский Гигант': ovoshhi/korneplody/seledrey_kornevoy_pragskiy_gigant.md
-      - Паслёновые: []
-      - Капустные: []
+      - Паслёновые:
+          - Томат 'Де Барао': ovoshhi/paslenovye/tomat_de_barao.md
+          - Томат 'Запуняка': ovoshhi/paslenovye/tomat_zapunyaka.md
+          - Томат 'Хурма': ovoshhi/paslenovye/tomat_hurma.md
+          - Томат 'Вкус Детства': ovoshhi/paslenovye/tomat_vkus_detstva.md
+          - Томат 'Феня F1': ovoshhi/paslenovye/tomat_fenya_f1.md
+          - Томат 'Сливка Желтая': ovoshhi/paslenovye/tomat_slivka_zheltaya.md
+          - Томат 'Трюфель Желтый': ovoshhi/paslenovye/tomat_trufel_zheltyy.md
+          - Томат 'Вишня в шоколаде': ovoshhi/paslenovye/tomat_vishenka_v_shokolade.md
+          - Томат 'Севрюга': ovoshhi/paslenovye/tomat_sevryuga.md
+          - Перец сладкий 'Белозёрка': ovoshhi/paslenovye/per_sladkiy_belozerka.md
+      - Капустные:
+          - Цветная капуста 'Альфа': ovoshhi/kapustnye/kapusta_tsvetnaya_alfa.md
+          - Капуста брокколи 'Брокколетти': ovoshhi/kapustnye/kapusta_brokolli_brokoletti.md
+          - Капуста белокочанная 'Июньская': ovoshhi/kapustnye/kapusta_belokochannaya_iynskaya.md
+          - Капуста цветная 'Сноуболл 123': ovoshhi/kapustnye/kapusta_tsvetnaya_snowball_123.md
       - Луковичные:
           - Лук репчатый 'Голд Стар': ovoshhi/lukovichnye/luk_repchaty_gold_star.md
           - Лук-порей 'Италико': ovoshhi/lukovichnye/luk_porrey_italiko.md
+          - Лук-порей 'Карантанский': ovoshhi/lukovichnye/luk_porrey_karantanskiy.md
+          - Лук-шнитт 'Богемия': ovoshhi/lukovichnye/luk_shnitt_bogemiya.md
       - Тыквенные: []
-      - Зелень: []
+      - Зелень:
+          - Бамия 'Красавица': ovoshhi/zelen/bamiya_krasavitsa.md
+          - Базилик 'Фиолетовый': ovoshhi/zelen/bazilik_fioletovyy.md
   - Плодовые: []
   - Цветы: []
