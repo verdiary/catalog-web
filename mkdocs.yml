@@ -1,6 +1,23 @@
 site_name: Справочник садовода
 theme:
   name: material
+  palette:
+    # Автоматическое переключение темы в зависимости от системных настроек
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/weather-sunny
+        name: Переключиться на темную тему
+    # Темная тема
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: green
+      accent: light green
+      toggle:
+        icon: material/weather-night
+        name: Переключиться на светлую тему
   features:
     - navigation.tabs # Вкладки категорий сверху (Овощи, Фрукты...)
     - navigation.sections # Секции в сайдбаре
