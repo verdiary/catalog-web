@@ -35,7 +35,9 @@ nav:
   - Главная: index.md
   - Овощи:
       - Корнеплоды:
+          - Редис 'Красный великан': ovoshhi/korneplody/redis_krasnyy_velikan.md
           - Сельдерей корневой 'Пражский Гигант': ovoshhi/korneplody/seledrey_kornevoy_pragskiy_gigant.md
+          - Свекла столовая 'Цилиндра': ovoshhi/korneplody/svekla_stolovaya_cilindra.md
       - Паслёновые:
           - Томат 'Де Барао': ovoshhi/paslenovye/tomat_de_barao.md
           - Томат 'Запуняка': ovoshhi/paslenovye/tomat_zapunyaka.md
@@ -57,9 +59,16 @@ nav:
           - Лук-порей 'Италико': ovoshhi/lukovichnye/luk_porrey_italiko.md
           - Лук-порей 'Карантанский': ovoshhi/lukovichnye/luk_porrey_karantanskiy.md
           - Лук-шнитт 'Богемия': ovoshhi/lukovichnye/luk_shnitt_bogemiya.md
-      - Тыквенные: []
+          - Черемша 'Медвежонок': ovoshhi/lukovichnye/cheremsha_medvezhonok.md
+      - Тыквенные:
+          - Кукуруза 'Краснодарская Сахарная 4': ovoshhi/tykvvennye/kukuruza_krasnodarskaya_sakharnaya_4.md
+          - Кукуруза сахарная 'Медовая': ovoshhi/tykvvennye/kukuruza_sakharnaya_medovaya.md
       - Зелень:
           - Бамия 'Красавица': ovoshhi/zelen/bamiya_krasavitsa.md
           - Базилик 'Фиолетовый': ovoshhi/zelen/bazilik_fioletovyy.md
+          - Базилик 'Наполитано Красный': ovoshhi/zelen/bazilik_napolitano_krasnyy.md
+          - Мангольд 'Барезе': ovoshhi/zelen/mangold_bareze.md
+          - Спаржа 'Аржентельская': ovoshhi/zelen/sparzha_argentelskaya.md
+          - Фенхель 'Снежность': ovoshhi/zelen/fenhel_snezhnost.md
   - Плодовые: []
   - Цветы: []
