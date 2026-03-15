@@ -1,0 +1,176 @@
+name: Deploy to Yandex Object Storage (s5cmd)
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+
+env:
+  PYTHON_VERSION: "3.11"
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python version
+        uses: actions/setup-python@v4
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+
+      - name: Cache pip dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Build MkDocs site
+        run: |
+          mkdocs build --strict
+
+      - name: Verify build output
+        run: |
+          ls -la site/
+          echo "Build completed successfully"
+          echo "Site size: $(du -sh site/ | cut -f1)"
+
+      - name: Install s5cmd
+        run: |
+          # Download and install s5cmd
+          wget https://github.com/peak/s5cmd/releases/download/v2.3.0/s5cmd_2.3.0_Linux_amd.tar.gz
+          tar -xzf s5cmd_2.3.0_Linux_amd.tar.gz
+          chmod +x s5cmd
+          sudo mv s5cmd /usr/local/bin/
+
+          # Verify installation
+          s5cmd version
+
+      - name: Configure s5cmd credentials
+        run: |
+          # Create AWS credentials file for s5cmd
+          mkdir -p ~/.aws
+          cat > ~/.aws/credentials << EOF
+          [default]
+          aws_access_key_id = ${{ secrets.YANDEX_STORAGE_ACCESS_KEY }}
+          aws_secret_access_key = ${{ secrets.YANDEX_STORAGE_SECRET_KEY }}
+          EOF
+
+          # Create AWS config file
+          cat > ~/.aws/config << EOF
+          [default]
+          region = us-east-1
+          s3 =
+              endpoint_url = ${{ secrets.YANDEX_STORAGE_ENDPOINT }}
+          EOF
+
+      - name: Deploy to Yandex Object Storage with s5cmd
+        run: |
+          echo "🚀 Starting deployment with s5cmd..."
+
+          # Sync files to Object Storage with s5cmd
+          # Using high-performance parallel uploads
+          s5cmd sync site/ s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/ \
+            --delete \
+            --exclude "*.git*" \
+            --exclude ".*" \
+            --size-only \
+            --concurrency 10
+            
+          echo "✅ Files synced successfully"
+
+      - name: Set proper content types with s5cmd
+        run: |
+          echo "📝 Setting content types..."
+
+          # Set content type for HTML files
+          s5cmd set --content-type "text/html" \
+            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.html"
+            
+          # Set content type for CSS files  
+          s5cmd set --content-type "text/css" \
+            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.css"
+            
+          # Set content type for JavaScript files
+          s5cmd set --content-type "application/javascript" \
+            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.js"
+            
+          # Set content type for JSON files
+          s5cmd set --content-type "application/json" \
+            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.json"
+            
+          # Set content type for XML files
+          s5cmd set --content-type "application/xml" \
+            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.xml"
+            
+          # Set content type for common image formats
+          s5cmd set --content-type "image/png" \
+            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.png"
+            
+          s5cmd set --content-type "image/jpeg" \
+            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.jpg"
+            
+          s5cmd set --content-type "image/jpeg" \
+            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.jpeg"
+            
+          s5cmd set --content-type "image/svg+xml" \
+            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.svg"
+            
+          # Set content type for fonts
+          s5cmd set --content-type "font/woff2" \
+            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.woff2"
+            
+          s5cmd set --content-type "font/woff" \
+            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.woff"
+            
+          echo "✅ Content types set successfully"
+
+      - name: Verify deployment
+        run: |
+          echo "🔍 Verifying deployment..."
+
+          # List files in the bucket
+          echo "Files in bucket:"
+          s5cmd ls s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/ | head -20
+
+          # Check if index.html exists
+          s5cmd stat s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/index.html
+
+          echo "✅ Deployment verification completed"
+
+      - name: Performance statistics
+        run: |
+          echo "📊 Deployment statistics:"
+          echo "Site built at: $(date)"
+          echo "Total files: $(find site/ -type f | wc -l)"
+          echo "Total size: $(du -sh site/ | cut -f1)"
+          echo "Bucket: ${{ secrets.YANDEX_STORAGE_BUCKET }}"
+          echo "Endpoint: ${{ secrets.YANDEX_STORAGE_ENDPOINT }}"
+
+          # Calculate deployment time
+          echo "Deployment completed in: $((SECONDS / 60)) minutes and $((SECONDS % 60)) seconds"
+
+      - name: Deployment summary
+        run: |
+          echo "🎉 Deployment completed successfully!"
+          echo "📁 Site deployed to: ${{ secrets.YANDEX_STORAGE_ENDPOINT }}/${{ secrets.YANDEX_STORAGE_BUCKET }}"
+          echo "🌐 Site URL: https://${{ secrets.YANDEX_STORAGE_BUCKET }}.${{ secrets.YANDEX_STORAGE_ENDPOINT }}"
+          echo "⚡ Deployed with s5cmd for maximum performance"
+
+      - name: Cleanup credentials
+        if: always()
+        run: |
+          # Remove AWS credentials
+          rm -rf ~/.aws
+          echo "🧹 Credentials cleaned up"
