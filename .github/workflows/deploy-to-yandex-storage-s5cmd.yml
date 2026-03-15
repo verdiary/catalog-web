@@ -71,8 +71,6 @@ jobs:
           cat > ~/.aws/config << EOF
           [default]
           region = ru-central1
-          s3 =
-              endpoint_url = ${{ secrets.YANDEX_STORAGE_ENDPOINT }}
           EOF
 
       - name: Deploy to Yandex Object Storage with s5cmd
@@ -82,6 +80,7 @@ jobs:
           # Sync files to Object Storage with s5cmd
           # Using high-performance parallel uploads
           s5cmd sync \
+            --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
             --delete \
             --exclude "*.git*" \
             --exclude ".*" \
@@ -96,43 +95,54 @@ jobs:
           echo "📝 Setting content types..."
 
           # Set content type for HTML files
-          s5cmd set --content-type "text/html" \
+          s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
+            set --content-type "text/html" \
             "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.html"
             
           # Set content type for CSS files  
-          s5cmd set --content-type "text/css" \
+          s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
+            set --content-type "text/css" \
             "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.css"
             
           # Set content type for JavaScript files
-          s5cmd set --content-type "application/javascript" \
+          s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
+            set --content-type "application/javascript" \
             "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.js"
             
           # Set content type for JSON files
-          s5cmd set --content-type "application/json" \
+          s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
+            set --content-type "application/json" \
             "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.json"
             
           # Set content type for XML files
-          s5cmd set --content-type "application/xml" \
+          s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
+            set --content-type "application/xml" \
             "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.xml"
             
           # Set content type for common image formats
-          s5cmd set --content-type "image/png" \
+          s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
+            set --content-type "image/png" \
             "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.png"
             
-          s5cmd set --content-type "image/jpeg" \
+          s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
+            set --content-type "image/jpeg" \
             "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.jpg"
             
-          s5cmd set --content-type "image/jpeg" \
+          s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
+            set --content-type "image/jpeg" \
             "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.jpeg"
             
-          s5cmd set --content-type "image/svg+xml" \
+          s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
+            set --content-type "image/svg+xml" \
             "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.svg"
             
           # Set content type for fonts
-          s5cmd set --content-type "font/woff2" \
+          s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
+            set --content-type "font/woff2" \
             "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.woff2"
             
-          s5cmd set --content-type "font/woff" \
+          s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
+            set --content-type "font/woff" \
             "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.woff"
             
           echo "✅ Content types set successfully"
@@ -143,10 +153,12 @@ jobs:
 
           # List files in the bucket
           echo "Files in bucket:"
-          s5cmd ls s3://${{ secrets.YANDEX_BUCKET_NAME }}/ | head -20
+          s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
+            ls s3://${{ secrets.YANDEX_BUCKET_NAME }}/ | head -20
 
           # Check if index.html exists
-          s5cmd stat s3://${{ secrets.YANDEX_BUCKET_NAME }}/index.html
+          s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
+            stat s3://${{ secrets.YANDEX_BUCKET_NAME }}/index.html
 
           echo "✅ Deployment verification completed"
 
