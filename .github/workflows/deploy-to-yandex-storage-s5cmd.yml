@@ -79,8 +79,8 @@ jobs:
 
           # Sync files to Object Storage with s5cmd
           # Using high-performance parallel uploads
-          s5cmd sync \
-            --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
+          s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
+            sync \
             --delete \
             --exclude "*.git*" \
             --exclude ".*" \
