@@ -70,7 +70,7 @@ jobs:
           # Create AWS config file
           cat > ~/.aws/config << EOF
           [default]
-          region = us-east-1
+          region = ru-central1
           s3 =
               endpoint_url = ${{ secrets.YANDEX_STORAGE_ENDPOINT }}
           EOF
