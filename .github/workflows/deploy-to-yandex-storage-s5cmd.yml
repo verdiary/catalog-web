@@ -49,8 +49,8 @@ jobs:
       - name: Install s5cmd
         run: |
           # Download and install s5cmd
-          wget https://github.com/peak/s5cmd/releases/download/v2.3.0/s5cmd_2.3.0_Linux_amd.tar.gz
-          tar -xzf s5cmd_2.3.0_Linux_amd.tar.gz
+          wget https://github.com/peak/s5cmd/releases/download/v2.3.0/s5cmd_2.3.0_Linux-64bit.tar.gz
+          tar -xzf s5cmd_2.3.0_Linux-64bit.tar.gz
           chmod +x s5cmd
           sudo mv s5cmd /usr/local/bin/
 
