@@ -81,7 +81,7 @@ jobs:
 
           # Sync files to Object Storage with s5cmd
           # Using high-performance parallel uploads
-          s5cmd sync site/ s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/ \
+          s5cmd sync site/ s3://${{ secrets.YANDEX_BUCKET_NAME }}/ \
             --delete \
             --exclude "*.git*" \
             --exclude ".*" \
@@ -96,43 +96,43 @@ jobs:
 
           # Set content type for HTML files
           s5cmd set --content-type "text/html" \
-            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.html"
+            "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.html"
             
           # Set content type for CSS files  
           s5cmd set --content-type "text/css" \
-            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.css"
+            "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.css"
             
           # Set content type for JavaScript files
           s5cmd set --content-type "application/javascript" \
-            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.js"
+            "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.js"
             
           # Set content type for JSON files
           s5cmd set --content-type "application/json" \
-            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.json"
+            "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.json"
             
           # Set content type for XML files
           s5cmd set --content-type "application/xml" \
-            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.xml"
+            "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.xml"
             
           # Set content type for common image formats
           s5cmd set --content-type "image/png" \
-            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.png"
+            "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.png"
             
           s5cmd set --content-type "image/jpeg" \
-            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.jpg"
+            "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.jpg"
             
           s5cmd set --content-type "image/jpeg" \
-            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.jpeg"
+            "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.jpeg"
             
           s5cmd set --content-type "image/svg+xml" \
-            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.svg"
+            "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.svg"
             
           # Set content type for fonts
           s5cmd set --content-type "font/woff2" \
-            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.woff2"
+            "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.woff2"
             
           s5cmd set --content-type "font/woff" \
-            "s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/*.woff"
+            "s3://${{ secrets.YANDEX_BUCKET_NAME }}/*.woff"
             
           echo "✅ Content types set successfully"
 
@@ -142,10 +142,10 @@ jobs:
 
           # List files in the bucket
           echo "Files in bucket:"
-          s5cmd ls s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/ | head -20
+          s5cmd ls s3://${{ secrets.YANDEX_BUCKET_NAME }}/ | head -20
 
           # Check if index.html exists
-          s5cmd stat s3://${{ secrets.YANDEX_STORAGE_BUCKET }}/index.html
+          s5cmd stat s3://${{ secrets.YANDEX_BUCKET_NAME }}/index.html
 
           echo "✅ Deployment verification completed"
 
@@ -155,7 +155,7 @@ jobs:
           echo "Site built at: $(date)"
           echo "Total files: $(find site/ -type f | wc -l)"
           echo "Total size: $(du -sh site/ | cut -f1)"
-          echo "Bucket: ${{ secrets.YANDEX_STORAGE_BUCKET }}"
+          echo "Bucket: ${{ secrets.YANDEX_BUCKET_NAME }}"
           echo "Endpoint: ${{ secrets.YANDEX_STORAGE_ENDPOINT }}"
 
           # Calculate deployment time
@@ -164,8 +164,8 @@ jobs:
       - name: Deployment summary
         run: |
           echo "🎉 Deployment completed successfully!"
-          echo "📁 Site deployed to: ${{ secrets.YANDEX_STORAGE_ENDPOINT }}/${{ secrets.YANDEX_STORAGE_BUCKET }}"
-          echo "🌐 Site URL: https://${{ secrets.YANDEX_STORAGE_BUCKET }}.${{ secrets.YANDEX_STORAGE_ENDPOINT }}"
+          echo "📁 Site deployed to: ${{ secrets.YANDEX_STORAGE_ENDPOINT }}/${{ secrets.YANDEX_BUCKET_NAME }}"
+          echo "🌐 Site URL: https://${{ secrets.YANDEX_BUCKET_NAME }}.${{ secrets.YANDEX_STORAGE_ENDPOINT }}"
           echo "⚡ Deployed with s5cmd for maximum performance"
 
       - name: Cleanup credentials
