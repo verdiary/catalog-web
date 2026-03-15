@@ -81,12 +81,13 @@ jobs:
 
           # Sync files to Object Storage with s5cmd
           # Using high-performance parallel uploads
-          s5cmd sync site/ s3://${{ secrets.YANDEX_BUCKET_NAME }}/ \
+          s5cmd sync \
             --delete \
             --exclude "*.git*" \
             --exclude ".*" \
             --size-only \
-            --concurrency 10
+            --concurrency 10 \
+            site/ s3://${{ secrets.YANDEX_BUCKET_NAME }}/
             
           echo "✅ Files synced successfully"
 
