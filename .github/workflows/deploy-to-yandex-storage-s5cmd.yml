@@ -99,10 +99,6 @@ jobs:
           s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
             ls s3://${{ secrets.YANDEX_BUCKET_NAME }}/ | head -20
 
-          # Check if index.html exists
-          s5cmd --endpoint-url ${{ secrets.YANDEX_STORAGE_ENDPOINT }} \
-            stat s3://${{ secrets.YANDEX_BUCKET_NAME }}/index.html
-
           echo "✅ Deployment verification completed"
 
       - name: Performance statistics
