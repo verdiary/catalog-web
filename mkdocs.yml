@@ -35,7 +35,12 @@ nav:
   - Главная: index.md
   - Овощи:
       - Корнеплоды:
+          - Катран 'Аккорд': ovoshhi/korneplody/katran_akkord.md
+          - Морковь 'Нантская 4': ovoshhi/korneplody/morkov_nantskaya_4.md
+          - Петрушка 'Сахарная': ovoshhi/korneplody/petrushka_sakharnaya.md
+          - Репа 'Петровская 1': ovoshhi/korneplody/repa_petrovskaya_1.md
           - Редис 'Красный великан': ovoshhi/korneplody/redis_krasnyy_velikan.md
+          - Редис 'Ледяная сосулька': ovoshhi/korneplody/redis_ledyanaya_sosulka.md
           - Сельдерей корневой 'Пражский Гигант': ovoshhi/korneplody/seledrey_kornevoy_pragskiy_gigant.md
           - Свекла столовая 'Цилиндра': ovoshhi/korneplody/svekla_stolovaya_cilindra.md
       - Паслёновые:
@@ -50,10 +55,12 @@ nav:
           - Томат 'Севрюга': ovoshhi/paslenovye/tomat_sevryuga.md
           - Перец сладкий 'Белозёрка': ovoshhi/paslenovye/per_sladkiy_belozerka.md
       - Капустные:
-          - Цветная капуста 'Альфа': ovoshhi/kapustnye/kapusta_tsvetnaya_alfa.md
-          - Капуста брокколи 'Брокколетти': ovoshhi/kapustnye/kapusta_brokolli_brokoletti.md
           - Капуста белокочанная 'Июньская': ovoshhi/kapustnye/kapusta_belokochannaya_iynskaya.md
+          - Капуста брокколи 'Брокколетти': ovoshhi/kapustnye/kapusta_brokolli_brokoletti.md
           - Капуста цветная 'Сноуболл 123': ovoshhi/kapustnye/kapusta_tsvetnaya_snowball_123.md
+          - Кольраби 'Смак': ovoshhi/kapustnye/kolrabi_smak.md
+          - Цветная капуста 'Альфа': ovoshhi/kapustnye/kapusta_tsvetnaya_alfa.md
+          - Капуста листовая (кале) 'Ночи Тосканы': ovoshhi/kapustnye/kale_nochi_toskany.md
       - Луковичные:
           - Лук репчатый 'Голд Стар': ovoshhi/lukovichnye/luk_repchaty_gold_star.md
           - Лук-порей 'Италико': ovoshhi/lukovichnye/luk_porrey_italiko.md
@@ -63,15 +70,22 @@ nav:
       - Тыквенные:
           - Кукуруза 'Краснодарская Сахарная 4': ovoshhi/tykvvennye/kukuruza_krasnodarskaya_sakharnaya_4.md
           - Кукуруза сахарная 'Медовая': ovoshhi/tykvvennye/kukuruza_sakharnaya_medovaya.md
+          - Огурец 'Кураж F1': ovoshhi/tykvvennye/ogurets_kurazh_f1.md
+          - Огурец 'Парижский Корнишон': ovoshhi/tykvvennye/ogurec_parizhskiy_kornishon.md
       - Зелень:
           - Бамия 'Красавица': ovoshhi/zelen/bamiya_krasavitsa.md
           - Базилик 'Фиолетовый': ovoshhi/zelen/bazilik_fioletovyy.md
+          - Базилик 'Крупнолистный сладкий': ovoshhi/zelen/bazilik_krupnolistnyy_sladkiy.md
+          - Базилик овощной 'Наполитано': ovoshhi/zelen/bazilik_napolitano.md
           - Базилик 'Наполитано Красный': ovoshhi/zelen/bazilik_napolitano_krasnyy.md
           - Мангольд 'Барезе': ovoshhi/zelen/mangold_bareze.md
           - Мангольд 'Изумруд': ovoshhi/zelen/mangold_izumrud.md
           - Мангольд 'Красавчик': ovoshhi/zelen/mangold_krasavchik.md
           - Мангольд 'Лукуллус': ovoshhi/zelen/mangold_lukullus.md
           - Мангольд 'Рубин': ovoshhi/zelen/mangold_rubin.md
+          - Петрушка 'Бабушкина грядка': ovoshhi/zelen/petrushka_babushkina_gryadka.md
+          - Петрушка 'Итальянский Богатырь': ovoshhi/zelen/petrushka_italyanskiy_bogatyr.md
+          - Сельдерей 'Самурай': ovoshhi/zelen/seledrey_samurai.md
           - Спаржа 'Аржентельская': ovoshhi/zelen/sparzha_argentelskaya.md
           - Фенхель 'Снежность': ovoshhi/zelen/fenhel_snezhnost.md
   - Плодовые: []
