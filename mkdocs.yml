@@ -31,6 +31,10 @@ markdown_extensions:
   - pymdownx.details
   - pymdownx.superfences
 
+plugins:
+  - git-revision-date-localized:
+      enable_creation_date: true
+
 nav:
   - Главная: index.md
   - Овощи:
@@ -82,18 +86,19 @@ nav:
           - Огурец 'Кураж F1': ovoshhi/tykvvennye/ogurets_kurazh_f1.md
           - Огурец 'Парижский Корнишон': ovoshhi/tykvvennye/ogurec_parizhskiy_kornishon.md
       - Зелень:
-          - Горчица сарептская 'Волнушка': ovoshhi/zelen/gorchitsa_sareptskaya_volnushka.md
           - Базилик 'Крупнолистный сладкий': ovoshhi/zelen/bazilik_krupnolistnyy_sladkiy.md
           - Базилик 'Наполитано Красный': ovoshhi/zelen/bazilik_napolitano_krasnyy.md
           - Базилик 'Фиолетовый': ovoshhi/zelen/bazilik_fioletovyy.md
           - Базилик овощной 'Наполитано': ovoshhi/zelen/bazilik_napolitano.md
           - Бамия 'Красавица': ovoshhi/zelen/bamiya_krasavitsa.md
+          - Горчица сарептская 'Волнушка': ovoshhi/zelen/gorchitsa_sareptskaya_volnushka.md
           - Лук-слизун 'Широколистный': ovoshhi/zelen/luk_slizun_shirokolistnyy.md
           - Мангольд 'Барезе': ovoshhi/zelen/mangold_bareze.md
           - Мангольд 'Изумруд': ovoshhi/zelen/mangold_izumrud.md
           - Мангольд 'Красавчик': ovoshhi/zelen/mangold_krasavchik.md
           - Мангольд 'Лукуллус': ovoshhi/zelen/mangold_lukullus.md
           - Мангольд 'Рубин': ovoshhi/zelen/mangold_rubin.md
+          - Петрушка 'Бабушкина Грядка': ovoshhi/zelen/petrushka_babushkina_gryadka.md
           - Петрушка 'Итальянский Богатырь': ovoshhi/zelen/petrushka_italyanskiy_bogatyr.md
           - Салат 'Гентилина': ovoshhi/zelen/salat_gentilina.md
           - Сельдерей 'Самурай': ovoshhi/zelen/seledrey_samurai.md
