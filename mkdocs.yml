@@ -76,6 +76,8 @@ nav:
           - Цветная капуста 'Альфа': ovoshhi/kapustnye/kapusta_tsvetnaya_alfa.md
       - Луковичные:
           - Лук репчатый 'Голд Стар': ovoshhi/lukovichnye/luk_repchaty_gold_star.md
+          - Лук батун 'Русский Зимний': ovoshhi/lukovichnye/luk_batun_russkiy_zimniy.md
+          - Лук душистый 'Китайский чеснок': ovoshhi/lukovichnye/luk_dushistyy_kitayskiy_chesnok.md
           - Лук-порей 'Италико': ovoshhi/lukovichnye/luk_porrey_italiko.md
           - Лук-порей 'Карантанский': ovoshhi/lukovichnye/luk_porrey_karantanskiy.md
           - Лук-шнитт 'Богемия': ovoshhi/lukovichnye/luk_shnitt_bogemiya.md
@@ -85,6 +87,7 @@ nav:
           - Кукуруза сахарная 'Медовая': ovoshhi/tykvvennye/kukuruza_sakharnaya_medovaya.md
           - Огурец 'Кураж F1': ovoshhi/tykvvennye/ogurets_kurazh_f1.md
           - Огурец 'Парижский Корнишон': ovoshhi/tykvvennye/ogurec_parizhskiy_kornishon.md
+          - Тыква 'Зимняя Сладкая': ovoshhi/tykvvennye/tykva_zimnyaya_sladkaya.md
       - Зелень:
           - Базилик 'Крупнолистный сладкий': ovoshhi/zelen/bazilik_krupnolistnyy_sladkiy.md
           - Базилик 'Наполитано Красный': ovoshhi/zelen/bazilik_napolitano_krasnyy.md
@@ -92,6 +95,7 @@ nav:
           - Базилик овощной 'Наполитано': ovoshhi/zelen/bazilik_napolitano.md
           - Бамия 'Красавица': ovoshhi/zelen/bamiya_krasavitsa.md
           - Горчица сарептская 'Волнушка': ovoshhi/zelen/gorchitsa_sareptskaya_volnushka.md
+          - Кресс водяной 'Подмосковный': ovoshhi/zelen/kress_vodyanoy_podmoskovnyy.md
           - Лук-слизун 'Широколистный': ovoshhi/zelen/luk_slizun_shirokolistnyy.md
           - Мангольд 'Барезе': ovoshhi/zelen/mangold_bareze.md
           - Мангольд 'Изумруд': ovoshhi/zelen/mangold_izumrud.md
@@ -100,9 +104,13 @@ nav:
           - Мангольд 'Рубин': ovoshhi/zelen/mangold_rubin.md
           - Петрушка 'Бабушкина Грядка': ovoshhi/zelen/petrushka_babushkina_gryadka.md
           - Петрушка 'Итальянский Богатырь': ovoshhi/zelen/petrushka_italyanskiy_bogatyr.md
+          - Ревень 'Виктория': ovoshhi/zelen/reven_viktoriya.md
           - Салат 'Гентилина': ovoshhi/zelen/salat_gentilina.md
           - Сельдерей 'Самурай': ovoshhi/zelen/seledrey_samurai.md
           - Спаржа 'Аржентельская': ovoshhi/zelen/sparzha_argentelskaya.md
+          - Хризантема съедобная 'Ишибан': ovoshhi/zelen/khrizantema_sedobnaya_ishiban.md
+          - Тмин овощной 'Восточный аромат': ovoshhi/zelen/tmin_ovoshchnoy_vostochny_aromat.md
+          - Щавель 'Широколистный': ovoshhi/zelen/shchavel_shirokolistnyy.md
           - Фенхель 'Снежность': ovoshhi/zelen/fenhel_snezhnost.md
   - Плодовые: []
   - Цветы: []
